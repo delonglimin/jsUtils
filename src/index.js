@@ -1,5 +1,9 @@
 /* //////////////////////////////判断操作///////////////////////////////////*/
 const TypeFn = {
+    /**
+     * 是否字符串
+     * @param {*} o 
+     */
     isString (o) { //是否字符串
         return Object.prototype.toString.call(o).slice(8, -1) === 'String'
     },
