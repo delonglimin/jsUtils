@@ -29,8 +29,6 @@
     - isPC() //
     - browserType() //
     - checkStr(string,type) //type:'phone','tel(座机)','card(身份证)','pwd（密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线）','postal（邮编）','QQ','email','money（金额(小数点2位)）','URL','IP','date','number','english','lower','upper','HTML'
-
-
  2. DateFn (时间操作)
    - formatTime(time,fomat)
    - getMonths(time, len, direction)//方向：1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
