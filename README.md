@@ -30,20 +30,38 @@
     - browserType() //
     - checkStr(string,type) //type:'phone','tel(座机)','card(身份证)','pwd（密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线）','postal（邮编）','QQ','email','money（金额(小数点2位)）','URL','IP','date','number','english','lower','upper','HTML'
  2. DateFn (时间操作)
-   - formatTime(time,fomat)
-   - getMonths(time, len, direction)//方向：1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
-   - getDays(time, len, diretion) //方向： 1: 前几天;  2: 后几天;  3:前后几天  默认 3
-   - formatHMS(s)//formatHMS(3610)  -> 1h0m10s
-   - getMonthOfDay (time) //获取某月有多少天
-   - getYearOfDay (time)//获取某年有多少天
-   - getFirstDayOfYear (time)//获取某年的第一天
-   - getLastDayOfYear (time)//获取某年最后一天
-   - getDayOfYear (time)//获取某个日期是当年中的第几天
-   - getDayOfYearWeek (time)//获取某个日期在这一年的第几周
+    - formatTime(time,fomat)
+    - getMonths(time, len, direction)//方向：1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
+    - getDays(time, len, diretion) //方向： 1: 前几天;  2: 后几天;  3:前后几天  默认 3
+    - formatHMS(s)//formatHMS(3610)  -> 1h0m10s
+    - getMonthOfDay (time) //获取某月有多少天
+    - getYearOfDay (time)//获取某年有多少天
+    - getFirstDayOfYear (time)//获取某年的第一天
+    - getLastDayOfYear (time)//获取某年最后一天
+    - getDayOfYear (time)//获取某个日期是当年中的第几天
+    - getDayOfYearWeek (time)//获取某个日期在这一年的第几周
+ 3. ArrayFn(数组操作)
+    - contains (arr, val)//判断一个元素是否在数组中
+    - sort (arr, type = 1) //1：从小到大   2：从大到小   3：随机
+    - unique (arr) //去重
+    - union (a, b) //求两个集合的并集
+    - intersect (a, b) //求两个集合的交集
+    - remove (arr, ele)//删除其中一个元素
+    - formArray (ary)//将类数组转换为数组的方法
+    - max (arr)//最大值
+    - min (arr)//最小值
+    - sum (arr)//求和
+    - average (arr)//平均值
+ 4. StringFn(字符串操作)
+    - trim (str, type) //type:  1-所有空格  2-前后空格  3-前空格 4-后空格
+    - changeCase (str, type) //type:  1:首字母大写  2：首页母小写  3：大小写转换  4：全部大写  5：全部小写
+    - checkPwd (str) //检测密码强度
+    - filterTag (str)//过滤html代码(把<>转换)
  5. NumberFn(数字操作)
     - random (min, max)//随机数范围
     - numberToChinese (num)//将阿拉伯数字翻译成中文的大写数字
     - changeToChinese (Num)//将数字转换为大写金额
+    - 
  6. Http(请求操作)
     - ajax(setting)//{method,url,async,dataType,data,success,error}
     - fetch(url, setting) return promise
