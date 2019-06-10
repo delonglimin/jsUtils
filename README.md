@@ -29,12 +29,21 @@
     - isPC() //
     - browserType() //
     - checkStr(string,type) //type:'phone','tel(座机)','card(身份证)','pwd（密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线）','postal（邮编）','QQ','email','money（金额(小数点2位)）','URL','IP','date','number','english','lower','upper','HTML'
- 
+ 2. DateFn (时间操作)
+   - formatTime(time,fomat)//
+   - getMonths(time, len, direction)//方向：1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
+   - getDays(time, len, diretion) //方向： 1: 前几天;  2: 后几天;  3:前后几天  默认 3
+   - formatHMS(s)//formatHMS(3610)return1h0m10s
+   - getMonthOfDay (time) //获取某月有多少天
+   - getYearOfDay (time)//获取某年有多少天
+   - getFirstDayOfYear (time)//获取某年的第一天
+   - getLastDayOfYear (time)//获取某年最后一天
+   - getDayOfYear (time)//获取某个日期是当年中的第几天
+   - getDayOfYearWeek (time)//获取某个日期在这一年的第几周
  5. NumberFn(数字操作)
     - random (min, max)//随机数范围
     - numberToChinese (num)//将阿拉伯数字翻译成中文的大写数字
     - changeToChinese (Num)//将数字转换为大写金额
-    - 
  6. Http(请求操作)
     - ajax(setting)//{method,url,async,dataType,data,success,error}
     - fetch(url, setting) return promise
