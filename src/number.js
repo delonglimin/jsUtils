@@ -205,3 +205,4 @@ class NumberFn {
         }
     
 }
+export default new NumberFn()

@@ -59,3 +59,4 @@ class DomFn {
         }
     }
 }
+export default new DomFn()

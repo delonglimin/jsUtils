@@ -4,7 +4,7 @@
 ```
 ## 导入
 ```javascript
-    import _ from 'fe_common_utils'
+    import _ from 'fe_common_utils' //名字可以随便取
 ```
 ## api
 

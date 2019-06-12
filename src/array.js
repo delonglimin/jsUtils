@@ -150,3 +150,4 @@ class ArrayFn {
         return this.sum(arr)/arr.length
     }
 }
+export default new ArrayFn()

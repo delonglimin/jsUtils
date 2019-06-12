@@ -126,6 +126,11 @@ function fetchHttp(url, setting = {}) {
         })
     })
 }
+const HttpFn = {
+    ajax,
+    fetchHttp
+}
+export default HttpFn
 
 
 

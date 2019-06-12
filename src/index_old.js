@@ -1,70 +1,74 @@
 /* //////////////////////////////判断操作///////////////////////////////////*/
-class TypeFn {
+const TypeFn = {
+    /**
+     * 是否字符串
+     * @param {*} o 
+     */
     isString (o) { //是否字符串
         return Object.prototype.toString.call(o).slice(8, -1) === 'String'
-    }
+    },
 
     isNumber (o) { //是否数字
         return Object.prototype.toString.call(o).slice(8, -1) === 'Number'
-    }
+    },
 
     isBoolean (o) { //是否boolean
         return Object.prototype.toString.call(o).slice(8, -1) === 'Boolean'
-    }
+    },
 
     isFunction (o) { //是否函数
         return Object.prototype.toString.call(o).slice(8, -1) === 'Function'
-    }
+    },
 
     isNull (o) { //是否为null
         return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
-    }
+    },
 
     isUndefined (o) { //是否undefined
         return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
-    }
+    },
 
     isObj (o) { //是否对象
         return Object.prototype.toString.call(o).slice(8, -1) === 'Object'
-    }
+    },
 
     isArray (o) { //是否数组
         return Object.prototype.toString.call(o).slice(8, -1) === 'Array'
-    }
+    },
 
     isDate (o) { //是否时间
         return Object.prototype.toString.call(o).slice(8, -1) === 'Date'
-    }
+    },
 
     isRegExp (o) { //是否正则
         return Object.prototype.toString.call(o).slice(8, -1) === 'RegExp'
-    }
+    },
 
     isError (o) { //是否错误对象
         return Object.prototype.toString.call(o).slice(8, -1) === 'Error'
-    }
+    },
 
     isSymbol (o) { //是否Symbol函数
         return Object.prototype.toString.call(o).slice(8, -1) === 'Symbol'
-    }
+    },
 
     isPromise (o) { //是否Promise对象
         return Object.prototype.toString.call(o).slice(8, -1) === 'Promise'
-    }
+    },
 
     isSet (o) { //是否Set对象
         return Object.prototype.toString.call(o).slice(8, -1) === 'Set'
-    }
+    },
 
 
     isFalse (o) {
         if (o == '' || o == undefined || o == null || o == 'null' || o == 'undefined' || o == 0 || o == false || o == NaN) return true
         return false
-    }
+    },
 
     isTrue (o) {
         return !this.isFalse(o)
-    }
+    },
 
     isIos () {
         var u = navigator.userAgent;
@@ -83,7 +87,7 @@ class TypeFn {
         }else{
             return false
         }
-    }
+    },
 
     isPC () { //是否为PC端
         var userAgentInfo = navigator.userAgent;
@@ -98,7 +102,7 @@ class TypeFn {
             }
         }
         return flag;
-    }
+    },
 
     browserType(){
         var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
@@ -126,7 +130,7 @@ class TypeFn {
         if (isOpera) return "Opera";
        if (isSafari) return "Safari";
         if (isChrome) return "Chrome";
-    }
+    },
 
     checkStr (str, type) {
         switch (type) {
@@ -167,7 +171,7 @@ class TypeFn {
             default:
                 return true;
         }
-    }
+    },
 
     // 严格的身份证校验
     isCardID(sId) {
@@ -209,7 +213,7 @@ class TypeFn {
 
 
 /* //////////////////////////////时间操作///////////////////////////////////*/
-class DateFn {
+const DateFn = {
     /**
      * 格式化时间
      * 
@@ -250,7 +254,7 @@ class DateFn {
             return value || 0
         })
         return time_str
-    }
+    },
 
 
     /**
@@ -317,7 +321,7 @@ class DateFn {
             return currArr.concat(nextArr)
         }
         return cutMonth(index)
-    }
+    },
 
 
 
@@ -359,7 +363,7 @@ class DateFn {
         }
         return diretion === 1 ? arr.concat([tt.getFullYear()+'-'+(tt.getMonth()+1)+'-'+tt.getDate()]) : 
             diretion === 2 ? [tt.getFullYear()+'-'+(tt.getMonth()+1)+'-'+tt.getDate()].concat(arr) : arr
-    }
+    },
 
 
     /**
@@ -378,7 +382,7 @@ class DateFn {
             str = s%60+'s'
         }
         return str
-    }
+    },
 
     /*获取某月有多少天*/
     getMonthOfDay (time) {
@@ -398,7 +402,7 @@ class DateFn {
             days = 30
         }
         return days
-    }
+    },
 
     /*获取某年有多少天*/
     getYearOfDay (time) {
@@ -406,13 +410,13 @@ class DateFn {
         var lastDayYear = this.getLastDayOfYear(time);
         var numSecond = (new Date(lastDayYear).getTime() - new Date(firstDayYear).getTime())/1000;
         return Math.ceil(numSecond/(24*3600));
-    }
+    },
 
     /*获取某年的第一天*/
     getFirstDayOfYear (time) {
         var year = new Date(time).getFullYear();
         return year + "-01-01 00:00:00";
-    }
+    },
 
     /*获取某年最后一天*/
     getLastDayOfYear (time) {
@@ -420,31 +424,31 @@ class DateFn {
         var dateString = year + "-12-01 00:00:00";
         var endDay = this.getMonthOfDay(dateString);
         return year + "-12-" + endDay + " 23:59:59";
-    }
+    },
 
     /*获取某个日期是当年中的第几天*/
     getDayOfYear (time) {
         var firstDayYear = this.getFirstDayOfYear(time);
         var numSecond = (new Date(time).getTime() - new Date(firstDayYear).getTime())/1000;
         return Math.ceil(numSecond/(24*3600));
-    }
+    },
 
     /*获取某个日期在这一年的第几周*/
     getDayOfYearWeek (time) {
         var numdays = this.getDayOfYear(time);
         return Math.ceil(numdays / 7);
-    }
+    },
 
 
     
 }
 
 /* //////////////////////////////数组操作///////////////////////////////////*/
-class ArrayFn {
+const ArrayFn = {
     /*判断一个元素是否在数组中*/
     contains (arr, val) {
         return arr.indexOf(val) != -1 ? true : false;
-    }
+    },
 
 
     /**
@@ -460,7 +464,7 @@ class ArrayFn {
             var res = fn.apply(arr, [arr[i], i].concat(args));
             if(res != null) a.push(res);
         }
-    }
+    },
 
     /**
      * @param  {arr} 数组
@@ -476,7 +480,7 @@ class ArrayFn {
             if(res != null) a.push(res);
         }
         return a;
-    }
+    },
 
 
     /**
@@ -497,7 +501,7 @@ class ArrayFn {
                     return arr;
             }
         })
-    }
+    },
 
     /*去重*/
     unique (arr) {
@@ -533,13 +537,13 @@ class ArrayFn {
         }
 
          */
-    }
+    },
 
     /*求两个集合的并集*/
     union (a, b) {
         var newArr = a.concat(b);
         return this.unique(newArr);
-    }
+    },
 
     /*求两个集合的交集*/
     intersect (a, b) {
@@ -548,7 +552,7 @@ class ArrayFn {
         return this.map(a, function(o) {
             return _this.contains(b, o) ? o : null;
         });
-    }
+    },
 
     /*删除其中一个元素*/
     remove (arr, ele) {
@@ -557,7 +561,7 @@ class ArrayFn {
             arr.splice(index, 1);
         }
         return arr;
-    }
+    },
 
     /*将类数组转换为数组的方法*/
     formArray (ary) {
@@ -568,33 +572,33 @@ class ArrayFn {
             arr = Array.prototype.slice.call(ary);
         };
         return arr;
-    }
+    },
 
     /*最大值*/
     max (arr) {
         return Math.max.apply(null, arr);
-    }
+    },
 
     /*最小值*/
     min (arr) {
         return Math.min.apply(null, arr);
-    }
+    },
 
     /*求和*/
     sum (arr) {
         return arr.reduce( (pre, cur) => {
             return pre + cur
         })
-    }
+    },
 
     /*平均值*/
     average (arr) {
         return this.sum(arr)/arr.length
-    }
+    },
 }
 
 /* //////////////////////////////字符串操作///////////////////////////////////*/
-class StringFn {
+const StringFn = {
     /**
      * 去除空格
      * @param  {str}
@@ -616,7 +620,7 @@ class StringFn {
             default:
                 return str;
         }
-    }
+    },
 
     /**
      * @param  {str} 
@@ -651,7 +655,7 @@ class StringFn {
             default:
                 return str;
         }
-    }
+    },
 
 
     /*
@@ -675,7 +679,7 @@ class StringFn {
             Lv++
         }
         return Lv;
-    }
+    },
 
     /*过滤html代码(把<>转换)*/
     filterTag (str) {
@@ -684,11 +688,11 @@ class StringFn {
         str = str.replace(/>/ig, "&gt;");
         str = str.replace(" ", "&nbsp;");
         return str;
-    }
+    },
 }
 
 /* //////////////////////////////数字操作///////////////////////////////////*/
-class NumberFn {
+const NumberFn = {
 
     /*随机数范围*/
     random (min, max) {
@@ -698,7 +702,7 @@ class NumberFn {
             return null;
         }
         
-    }
+    },
 
     /*将阿拉伯数字翻译成中文的大写数字*/
     numberToChinese (num) {
@@ -741,7 +745,7 @@ class NumberFn {
         if(re.match(/^一/) && re.length == 3)
             re = re.replace("一", "");
         return re;
-    }
+    },
 
     /*将数字转换为大写金额*/
     changeToChinese (Num) {
@@ -898,7 +902,7 @@ class NumberFn {
 
 
 /* //////////////////////////////请求操作///////////////////////////////////*/
-class Http {
+const Http = {
     /**
      * @param  {setting}
      */
@@ -965,7 +969,7 @@ class Http {
         xhr.onerror = function(err) {
             opts.error(err);
         }
-    }
+    },
 
     /**
      * @param  {url}
@@ -1016,7 +1020,7 @@ class Http {
 
 
 /* //////////////////////////////DOM操作///////////////////////////////////*/
-class DomFn {
+const DomFn = {
 
     $ (selector){ 
         var type = selector.substring(0, 1);
@@ -1030,17 +1034,17 @@ class DomFn {
         }else{
             return document['querySelectorAll' ? 'querySelectorAll':'getElementsByTagName'](selector)
         }
-    } 
+    },
 
     /*检测类名*/
     hasClass (ele, name) {
         return ele.className.match(new RegExp('(\\s|^)' + name + '(\\s|$)'));
-    }
+    },
 
     /*添加类名*/
     addClass (ele, name) {
         if (!this.hasClass(ele, name)) ele.className += " " + name;
-    }
+    },
 
     /*删除类名*/
     removeClass (ele, name) {
@@ -1048,13 +1052,13 @@ class DomFn {
             var reg = new RegExp('(\\s|^)' + name + '(\\s|$)');
             ele.className = ele.className.replace(reg, '');
         }
-    }
+    },
 
     /*替换类名*/
     replaceClass (ele, newName, oldName) {
         this.removeClass(ele, oldName);
         this.addClass(ele, newName);
-    }
+    },
 
     /*获取兄弟节点*/
     siblings (ele) {
@@ -1065,7 +1069,7 @@ class DomFn {
             } 
         } 
         return eleMatch;
-    }
+    },
 
     /*获取行间样式属性*/
     getByStyle (obj,name){
@@ -1078,11 +1082,9 @@ class DomFn {
 }
 
 /* //////////////////////////////储存操作///////////////////////////////////*/
-class StorageFn {
-    constructor () {
-        this.ls = window.localStorage;
-        this.ss = window.sessionStorage;
-    }
+const StorageFn = {
+    ls : !global ? window.localStorage : global,
+    ss : !global ? window.sessionStorage : global,
 
     /*-----------------cookie---------------------*/
     /*设置cookie*/
@@ -1100,7 +1102,7 @@ class StorageFn {
             document.cookie = name + '=' + value + ';expires=' + oDate;
         }
         
-    }
+    },
 
     /*获取cookie*/
     getCookie (name) {
@@ -1112,12 +1114,12 @@ class StorageFn {
             }
         }
         return '';
-    }
+    },
 
     /*删除cookie*/
     removeCookie (name) {
         this.setCookie(name, 1, -1);
-    }
+    },
 
 
     /*-----------------localStorage---------------------*/
@@ -1132,24 +1134,24 @@ class StorageFn {
             this.ls.setItem(key, JSON.stringify(val))
         }
         
-    }
+    },
 
     /*获取localStorage*/
     getLocal(key) {
         if (key) return JSON.parse(this.ls.getItem(key))
         return null;
         
-    }
+    },
 
     /*移除localStorage*/
     removeLocal(key) {
         this.ls.removeItem(key)
-    }
+    },
 
     /*移除所有localStorage*/
     clearLocal() {
         this.ls.clear()
-    }
+    },
 
 
     /*-----------------sessionStorage---------------------*/
@@ -1164,31 +1166,31 @@ class StorageFn {
             this.ss.setItem(key, JSON.stringify(val))
         }
         
-    }
+    },
 
     /*获取sessionStorage*/
     getSession(key) {
         if (key) return JSON.parse(this.ss.getItem(key))
         return null;
         
-    }
+    },
 
     /*移除sessionStorage*/
     removeSession(key) {
         this.ss.removeItem(key)
-    }
+    },
 
     /*移除所有sessionStorage*/
     clearSession() {
         this.ss.clear()
-    }
+    },
 
     
 }
 
 
 /* //////////////////////////////其它操作///////////////////////////////////*/
-class OtherFn {
+const OtherFn = {
     /**
      * [deepClone 深度克隆]
      * @param  {[type]} obj [克隆对象]
@@ -1254,7 +1256,7 @@ class OtherFn {
             return child;
         }
         return _clone(obj)
-    }
+    },
 
     /**
      * 防抖动
@@ -1276,7 +1278,7 @@ class OtherFn {
             timeout = setTimeout(later, delay);
             if (callNow) fn.apply(context, args);
         };
-    }
+    },
 
     /**
      * 节流
@@ -1295,7 +1297,7 @@ class OtherFn {
                 prev = Date.now();
             }
         }
-    }
+    },
 
     /**
      * 图片压缩
@@ -1369,14 +1371,14 @@ class OtherFn {
             var re=this.result;
             canvasDataURL(re)
         }
-    }
+    },
     
     /*获取网址参数*/
     getURL(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = decodeURI(window.location.search).substr(1).match(reg);
         if(r!=null) return  r[2]; return null;
-    }
+    },
 
     /*获取全部url参数,并转换成json对象*/
     getUrlAllParams (url) {
@@ -1394,7 +1396,7 @@ class OtherFn {
             _rs[name] = value;
         }
         return _rs;
-    }
+    },
 
     /*删除url指定参数，返回url*/
     delParamsUrl(url, name){
@@ -1413,14 +1415,14 @@ class OtherFn {
         }else{
             return url;
         }
-    }
+    },
 
     /*获取十六进制随机颜色*/
     getRandomColor () {
         return '#' + (function(h) {
             return new Array(7 - h.length).join("0") + h;
         })((Math.random() * 0x1000000 << 0).toString(16));
-    }
+    },
 
     /*图片加载*/
     imgLoadAll(arr,callback){
@@ -1435,28 +1437,28 @@ class OtherFn {
                 }
             }
         }
-    }
+    },
 
     /*音频加载*/
     loadAudio(src, callback) {
         var audio = new Audio(src);
         audio.onloadedmetadata = callback;
         audio.src = src;
-    }
+    },
 
     /*DOM转字符串*/
     domToStirng(htmlDOM){
         var div= document.createElement("div");
         div.appendChild(htmlDOM);
         return div.innerHTML
-    }
+    },
 
     /*字符串转DOM*/
     stringToDom(htmlString){
         var div= document.createElement("div");
         div.innerHTML=htmlString;
         return div.children[0];
-    }
+    },
 
 
     /**
@@ -1475,7 +1477,7 @@ class OtherFn {
         dom.focus();
         console.log(posLen)
         dom.setSelectionRange(dom.value.length,cursorPosition + (posLen || val.length));
-    }
+    },
 
     /*光标所在位置插入字符*/
     insertAtCursor(dom, val) {

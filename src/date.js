@@ -227,3 +227,4 @@ class DateFn {
 
     
 }
+export default new DateFn()

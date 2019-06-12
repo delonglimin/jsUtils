@@ -105,3 +105,4 @@ class StorageFn {
 
     
 }
+export default new StorageFn()

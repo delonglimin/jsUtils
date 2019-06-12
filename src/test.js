@@ -1,3 +1,3 @@
-import _ from './index.js'
-let a =  _.TypeFn
-console.log(a.isIos())
+import __ from "./index.js";
+let a = __.StringFn;
+ console.log(a.trim("  as  "))

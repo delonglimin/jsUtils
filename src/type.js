@@ -205,3 +205,4 @@ class TypeFn {
         return true
     }
 }
+export default new TypeFn()

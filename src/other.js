@@ -363,3 +363,5 @@ class OtherFn {
         }
     }
 }
+
+export default new OtherFn()
