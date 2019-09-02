@@ -1503,7 +1503,7 @@ const OtherFn = {
         }
     }
 }
-export default  {
+module.exports =  {
     TypeFn,
     DateFn,
     ArrayFn,

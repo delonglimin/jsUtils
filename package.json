@@ -2,7 +2,7 @@
   "name": "fe_common_utils",
   "version": "1.0.2",
   "description": "javascript utils tools functions",
-  "main": "./src/index.js",
+  "main": "./src/index_old.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "test": "cross-env NODE_ENV=test webpack-dev-server --open "
